@@ -1,0 +1,10 @@
+.app-layout {
+  display: flex;
+  height: calc(100vh - 70px);
+}
+.content {
+  flex: 1;
+  padding: 2rem;
+  background: #f8f8f8;
+  overflow-y: auto;
+}

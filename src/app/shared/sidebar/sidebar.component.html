@@ -1,0 +1,20 @@
+<aside class="sidebar">
+  <div class="brand-section">
+    <h3 class="sidebar-title">YouTube Clone</h3>
+    <span class="username">{{ auth.currentUser()?.username || 'Invité' }}</span>
+  </div>
+
+  <div class="playlist-section">
+    <h4>Playlist Vidéos</h4>
+    <ul>
+      @for (video of videos(); track video.id) {
+        <li class="playlist-item" [routerLink]="['/video', video.id]">
+          <span class="video-title">{{ video.title }}</span>
+          <button class="btn-remove" (click)="removeVideo(video.id, $event)">✕</button>
+        </li>
+      } @empty {
+        <li class="empty">Aucune vidéo dans votre playlist</li>
+      }
+    </ul>
+  </div>
+</aside>

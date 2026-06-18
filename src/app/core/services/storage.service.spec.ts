@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { Storage } from './storageService';
+import { Storage } from './storage.service';
 
 describe('Storage', () => {
   let service: Storage;

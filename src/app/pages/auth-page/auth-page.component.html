@@ -4,28 +4,28 @@
 
     <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
       <input type="text" formControlName="username" placeholder="Nom d'utilisateur" />
+
       @if (!isLoginMode()) {
         <input type="email" formControlName="email" placeholder="Email" />
         @if (authForm.get('email')?.invalid && authForm.get('email')?.touched) {
           <div class="error">Email requis et valide</div>
         }
       }
+
       <input type="password" formControlName="password" placeholder="Mot de passe" />
-      @if (!isLoginMode()) {
-        <input type="password" formControlName="confirmPassword" placeholder="Confirmer mot de passe" />
-        @if (authForm.errors?.['mismatch'] && authForm.get('confirmPassword')?.touched) {
-          <div class="error">Les mots de passe ne correspondent pas</div>
-        }
-      }
 
       <button type="submit" [disabled]="authForm.invalid">
         {{ isLoginMode() ? 'Se connecter' : 'S\'inscrire' }}
       </button>
     </form>
 
-    <button class="switch-btn" (click)="toggleMode()">
-      {{ isLoginMode() ? 'Pas encore de compte ? S\'inscrire' : 'Déjà inscrit ? Se connecter' }}
-    </button>
+    <div class="switch-links">
+      @if (isLoginMode()) {
+        <button class="switch-btn" type="button" (click)="goToRegister()">Pas encore de compte ? S'inscrire</button>
+      } @else {
+        <button class="switch-btn" type="button" (click)="goToLogin()">Déjà inscrit ? Se connecter</button>
+      }
+    </div>
 
     @if (errorMessage()) {
       <div class="error">{{ errorMessage() }}</div>
