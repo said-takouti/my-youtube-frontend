@@ -26,7 +26,7 @@
 }
 
 .btn-search {
-  background: #3b82f6; /* Bleu identique à l'image */
+  background: #3b82f6;
   color: white;
   border: none;
   padding: 0.6rem 1.8rem;
@@ -46,4 +46,26 @@
   color: #444;
   background: #ffffff;
   font-size: 0.95rem;
+}
+
+.video-info button.secondary-btn {
+  background-color: #2ecc71 !important;
+  color: white !important;
+  border: none !important;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.video-info button.secondary-btn:hover {
+  background-color: #27ae60 !important;
+}
+
+.video-info button.secondary-btn:disabled {
+  background-color: #bdc3c7 !important;
+  color: #7f8c8d !important;
+  cursor: not-allowed;
 }

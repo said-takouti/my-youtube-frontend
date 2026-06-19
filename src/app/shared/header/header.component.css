@@ -18,7 +18,7 @@
 .auth-section {
   display: flex;
   align-items: center;
-  gap: 0.5rem; /* Réduit pour coller au style de l'image */
+  gap: 0.5rem;
 }
 
 .username {
@@ -26,14 +26,13 @@
   font-weight: 500;
 }
 
-/* Style épuré pour correspondre à l'image */
 .btn-link {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
   background: transparent;
   color: white;
-  border: none; /* Suppression de la bordure pour ressembler à l'image */
+  border: none;
   cursor: pointer;
   font-size: 0.95rem;
   text-decoration: none;
@@ -44,7 +43,6 @@
   text-decoration: underline;
 }
 
-/* Taille de l'icône SVG */
 .icon {
   width: 1.2rem;
   height: 1.2rem;
@@ -55,7 +53,6 @@
   font-size: 1rem;
 }
 
-/* Bouton de déconnexion */
 .btn-logout {
   background: #aa0000;
   color: white;

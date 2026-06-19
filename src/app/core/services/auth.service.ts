@@ -1,16 +1,6 @@
 import { Injectable, signal, computed, effect } from '@angular/core';
-
-export interface Video {
-  id: string;
-  title: string;
-  thumbnail: string;
-}
-
-export interface User {
-  username: string;
-  email?: string;
-  password?: string;
-}
+import { Video } from '../models/video.model';
+import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root',

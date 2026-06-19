@@ -2,11 +2,47 @@
   <h2>Recherche de vidéos YouTube</h2>
 
   <div class="search-bar-group">
-    <input type="text" placeholder="Angular" class="search-input" />
-    <button class="btn-search">Rechercher</button>
+    <input
+      type="text"
+      [formControl]="searchControl"
+      class="search-input"
+      placeholder="Rechercher une vidéo..."
+      (keyup.enter)="onSearch()"
+    />
+    <button class="btn-search" (click)="onSearch()">Rechercher</button>
   </div>
 
-  <div class="loading-status">
-    Loading...
-  </div>
+  @if (isLoading()) {
+    <div class="loading-status">Loading...</div>
+  } @else {
+    <div class="video-grid">
+      @for (video of filteredVideos(); track video.id) {
+        <div class="video-card">
+          <img
+            [src]="video.thumbnail"
+            alt="Miniature"
+            class="thumbnail"
+            [routerLink]="['/video', video.id]"
+            style="cursor: pointer;"
+          />
+
+          <div class="video-info">
+            <h3 [routerLink]="['/video', video.id]" style="cursor: pointer;" [innerHTML]="video.title"></h3>
+
+            @if (auth.isAuthenticated()) {
+              <button
+                class="secondary-btn"
+                [disabled]="isInPlaylist(video.id)"
+                (click)="addToPlaylist(video)"
+              >
+                {{ isInPlaylist(video.id) ? 'Ajouté' : 'Ajouter' }}
+              </button>
+            }
+          </div>
+        </div>
+      } @empty {
+        <div class="no-results">Aucun résultat trouvé pour votre recherche.</div>
+      }
+    </div>
+  }
 </div>
